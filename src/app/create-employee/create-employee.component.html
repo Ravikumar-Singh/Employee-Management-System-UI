@@ -1,0 +1,69 @@
+<div class="create-panel" [hidden]="submitted">
+  <div class="create-header">
+    <h3>➕ Create Employee</h3>
+  </div>
+
+  <div class="create-body">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="firstName"
+          required
+          [(ngModel)]="employee.firstName"
+          name="firstName"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="lastName"
+          required
+          [(ngModel)]="employee.lastName"
+          name="lastName"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="emailId">Email Id</label>
+        <input
+          type="email"
+          class="form-control"
+          id="emailId"
+          required
+          [(ngModel)]="employee.emailId"
+          name="emailId"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="mobNo">Mobile No</label>
+        <input
+          type="text"
+          class="form-control"
+          id="mobNo"
+          required
+          [(ngModel)]="employee.mobNo"
+          name="mobNo"
+        />
+      </div>
+
+      <div class="form-footer">
+        <button type="submit" class="btn btn-success">✅ Create</button>
+        <button type="button" class="btn btn-secondary" (click)="newEmployee()">🔄 Reset</button>
+        <button type="button" class="btn btn-danger" (click)="gotoList()">❌ Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="success-message" [hidden]="!submitted">
+  <h4>🎉 You submitted successfully!</h4>
+  <button class="btn btn-primary" (click)="newEmployee()">➕ Add Another</button>
+  <button class="btn btn-danger" (click)="gotoList()">❌ Back to List</button>
+</div>

@@ -1,0 +1,31 @@
+<div class="details-panel" *ngIf="employee">
+  <div class="details-header">
+    <h2>📋 Employee Details</h2>
+  </div>
+
+  <div class="details-body">
+    <div class="detail-row">
+      <label><b>First Name:</b></label>
+      <span>{{employee.firstName}}</span>
+    </div>
+
+    <div class="detail-row">
+      <label><b>Last Name:</b></label>
+      <span>{{employee.lastName}}</span>
+    </div>
+
+    <div class="detail-row">
+      <label><b>Email Id:</b></label>
+      <span>{{employee.emailId}}</span>
+    </div>
+
+    <div class="detail-row">
+      <label><b>Phone No:</b></label>
+      <span>{{employee.mobNo}}</span>
+    </div>
+  </div>
+
+  <div class="details-footer">
+    <button (click)="list()" class="btn btn-primary">⬅ Back to Employee List</button>
+  </div>
+</div>

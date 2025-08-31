@@ -1,0 +1,77 @@
+/* Navbar gradient */
+.bg-gradient-primary {
+  background: linear-gradient(90deg, #007bff, #6610f2);
+}
+
+/* Navbar hover */
+.nav-link {
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+  color: #ffd700 !important;
+  transform: scale(1.05);
+}
+
+/* Page title */
+.page-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #343a40;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Stats card */
+.stat-card {
+  border-radius: 1rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Card styling */
+.card {
+  border: none;
+  border-radius: 1rem;
+}
+
+.card-body {
+  background: #f8f9fa;
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+/* Footer should stay below content */
+/* Footer should stay at the bottom but not overlap */
+.footer {
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  background: #212529;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+
+  position: relative;   /* ✅ keeps it in flow */
+  width: 100%;
+  margin-top: auto;     /* ✅ pushes footer to bottom when content is short */
+}
+
+/* Layout fix for full-height page */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Keep Bootstrap .container untouched */
+.main-content {
+  flex: 1;               /* take remaining height */
+  padding-bottom: 2rem;  /* space before footer */
+}
+
+
+

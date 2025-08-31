@@ -1,0 +1,104 @@
+<!-- 🌟 Navbar -->
+<!-- 🌟 Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-gradient-primary shadow">
+  <div class="container">
+    <a class="navbar-brand fw-bold" routerLink="/">
+      <img 
+        src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" 
+        width="30" height="30"
+        class="me-2 rounded-circle" 
+        alt="logo" />
+      Employee Portal
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a (click)="goToEmployees()" class="nav-link" routerLinkActive="active">
+            👥 Employee List
+          </a>
+        </li>
+        <li class="nav-item">
+          <a (click)="goToAddEmployees()" class="nav-link" routerLinkActive="active">
+            ➕ Add Employee
+          </a>
+        </li>
+      </ul>
+
+      <!-- 🚪 Logout Button on Right -->
+      <div class="ms-auto">
+        <button class="btn btn-outline-light btn-sm" (click)="logout()">🚪 Logout</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+
+
+<!-- 🌟 Main Content -->
+<div class="main-content container mt-4">
+  <h2 class="page-title text-center">{{ title }}</h2>
+  <hr />
+
+  <!-- Welcome Banner -->
+  <div class="alert alert-info text-center shadow-sm">
+    <h4>👋 Welcome back, Isha!</h4>
+    <p>Here’s what’s happening in your company today.</p>
+  </div>
+
+  <!-- Quick Stats Section -->
+  <div class="card shadow stat-card" 
+     style="cursor: pointer;" 
+     (click)="goToEmployees()">
+  <div class="card-body">
+    <h5 class="card-title">👥 Employees</h5>
+    <h3 class="fw-bold text-primary">{{ totalCount }}</h3>
+    <p class="text-muted">Active Staff Members</p>
+  </div>
+</div>
+
+
+
+
+
+  <!-- Main Portal Content -->
+  <div class="card shadow-lg rounded-4 mb-4">
+    <div class="card-body">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+  <!-- News & Announcements -->
+  <div class="card shadow rounded-4 mb-4">
+    <div class="card-header bg-primary text-white fw-bold">
+      📢 Company Announcements
+    </div>
+    <div class="card-body">
+      <ul class="list-group">
+        <li class="list-group-item">🎉 Annual Day Celebration on Sept 15th</li>
+        <li class="list-group-item">📈 Q2 Revenue Report Released</li>
+        <li class="list-group-item">🛠 System Maintenance on Sept 5th, 2 AM</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- 🌟 Footer -->
+<footer class="footer bg-dark text-white mt-5 py-3 shadow-lg">
+  <div class="container text-center">
+    <span>✨ All Rights Reserved © 2025 | Employee Portal by <b>Isha</b> ✨</span>
+  </div>
+</footer>
+

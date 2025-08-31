@@ -1,0 +1,89 @@
+/* Panel container */
+.employee-panel {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin: 30px auto;
+  max-width: 1000px;
+  background: #ffffff;
+}
+
+/* Header */
+.employee-header {
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+.employee-header h2 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+/* Table */
+.employee-body {
+  padding: 20px;
+}
+
+.employee-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.employee-table th {
+  background: #f1f1f1;
+  padding: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #333;
+}
+
+.employee-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Hover effect */
+.employee-table tr:hover {
+  background-color: #f9f9ff;
+  transition: 0.2s;
+}
+
+/* Buttons */
+button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-right: 8px;
+  transition: 0.3s;
+}
+
+.btn-danger {
+  background: #e74c3c;
+  color: white;
+}
+.btn-danger:hover {
+  background: #c0392b;
+}
+
+.btn-warning {
+  background: #f39c12;
+  color: white;
+}
+.btn-warning:hover {
+  background: #d68910;
+}
+
+.btn-info {
+  background: #3498db;
+  color: white;
+}
+.btn-info:hover {
+  background: #2c81ba;
+}
