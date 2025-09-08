@@ -1,0 +1,73 @@
+<div class="container mt-5" style="max-width: 400px;">
+  <h3 class="text-center text-primary mb-4">Create User</h3>
+  <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
+    <!-- Name -->
+    <div class="form-group mb-3">
+      <label for="name">Name</label>
+      <input 
+        type="text"
+        id="name"
+        class="form-control"
+        required
+        [(ngModel)]="user.name"
+        name="name"
+        #name="ngModel">
+      <div *ngIf="name.invalid && name.touched" class="text-danger small">
+        Name is required
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="form-group mb-3">
+      <label for="email">Email</label>
+      <input 
+        type="email"
+        id="email"
+        class="form-control"
+        required
+        [(ngModel)]="user.email"
+        name="email"
+        #email="ngModel">
+      <div *ngIf="email.invalid && email.touched" class="text-danger small">
+        Valid email is required
+      </div>
+    </div>
+
+    <!-- Mobile Number -->
+    <div class="form-group mb-3">
+      <label for="mobileNo">Mobile No</label>
+      <input 
+        type="text"
+        id="mobileNo"
+        class="form-control"
+        required
+        pattern="^[0-9]{10}$"
+        [(ngModel)]="user.mobNo"
+        name="mobileNo"
+        #mobileNo="ngModel">
+      <div *ngIf="mobileNo.invalid && mobileNo.touched" class="text-danger small">
+        10-digit mobile number is required
+      </div>
+    </div>
+
+    <!-- Passcode -->
+    <div class="form-group mb-3">
+      <label for="passcode">Passcode</label>
+      <input 
+        type="password"
+        id="passcode"
+        class="form-control"
+        required
+        [(ngModel)]="user.passcode"
+        name="passcode"
+        #passcode="ngModel">
+      <div *ngIf="passcode.invalid && passcode.touched" class="text-danger small">
+        Passcode is required
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success w-100" [disabled]="registerForm.invalid">
+      Register
+    </button>
+  </form>
+</div>

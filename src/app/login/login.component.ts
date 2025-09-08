@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { EmployeeService } from '../employee.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,17 +15,20 @@ export class LoginComponent implements OnInit {
   username: string = '';
     password: string = '';
     constructor(
-        private router: Router) { }
+        private router: Router, private employeeService: EmployeeService) { }
   
     onSubmit() {
-      if (this.username === 'Ravi' && this.password === '123456') {
-        alert('Login successful ✅');
-        // Here you could navigate to dashboard or employees list
-        // e.g., this.router.navigate(['/employees']);
+
+      this.employeeService.authorizeUser(this.username, this.password).subscribe(
+      _ => {
+        alert('Login successful!');
         this.router.navigate(['/home'], { state: { isLoggedIn: true } });
-      } else {
-        alert('Invalid credentials ❌');
+      },
+      _ => {
+        alert('Invalid credentials!');
       }
+      );
+     
     }
 
 }

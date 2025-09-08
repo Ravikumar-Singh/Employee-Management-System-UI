@@ -7,6 +7,8 @@ import { UpdateEmployeeComponent } from './update-employee/update-employee.compo
 import { HomepageComponent } from './homepage/homepage.component';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+
 const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' }, 
   { path: 'home/employees', component: EmployeeListComponent },
@@ -15,6 +17,7 @@ const routes: Routes = [
   { path: 'home/details/:id', component: EmployeeDetailsComponent },
   { path: 'home', component: HomepageComponent },
   {path: 'login', component: LoginComponent},
+  { path: 'register', component: RegisterComponent },
 ];
 
 @NgModule({
