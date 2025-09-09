@@ -1,0 +1,59 @@
+/* Background for Login Page */
+.login-bg {
+  background: url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f") no-repeat center center/cover;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.login-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); /* dark overlay */
+  backdrop-filter: blur(6px);      /* 🔥 Blur effect */
+  z-index: 1;
+}
+
+.login-card {
+  position: relative;
+  z-index: 2; /* ensures card is above overlay */
+  background: rgba(255, 255, 255, 0.9); /* semi-transparent white */
+  border-radius: 1rem;
+}
+
+
+
+
+/* Card Styling */
+.card {
+  border: none;
+  border-radius: 1rem;
+  background: #fff;
+}
+
+.card img {
+  border-radius: 50%;
+  background: #f1f1f1;
+  padding: 8px;
+}
+
+/* Input Fields */
+.form-control {
+  border-radius: 0.5rem;
+  padding: 10px;
+}
+
+/* Login Button */
+.btn-primary {
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}

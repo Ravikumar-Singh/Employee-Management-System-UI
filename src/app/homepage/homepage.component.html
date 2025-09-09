@@ -1,5 +1,4 @@
 <!-- 🌟 Navbar -->
-<!-- 🌟 Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-primary shadow">
   <div class="container">
     <a class="navbar-brand fw-bold" routerLink="/">
@@ -34,16 +33,13 @@
         </li>
       </ul>
 
-      <!-- 🚪 Logout Button on Right -->
+      <!-- 🚪 Logout Button -->
       <div class="ms-auto">
         <button class="btn btn-outline-light btn-sm" (click)="logout()">🚪 Logout</button>
       </div>
     </div>
   </div>
 </nav>
-
-
-
 
 <!-- 🌟 Main Content -->
 <div class="main-content container mt-4">
@@ -57,28 +53,39 @@
   </div>
 
   <!-- Quick Stats Section -->
-  <div class="card shadow stat-card" 
-     style="cursor: pointer;" 
-     (click)="goToEmployees()">
-  <div class="card-body">
-    <h5 class="card-title">👥 Employees</h5>
-    <h3 class="fw-bold text-primary">{{ totalCount }}</h3>
-    <p class="text-muted">Active Staff Members</p>
-  </div>
-</div>
+  <div class="row text-center mb-4">
+    <div class="col-md-4">
+      <div class="card shadow stat-card" (click)="goToEmployees()" style="cursor:pointer;">
+        <div class="card-body">
+          <h5 class="card-title">👥 Employees</h5>
+          <h3 class="fw-bold text-primary">{{ totalCount }}</h3>
+          <p class="text-muted">Active Staff Members</p>
+        </div>
+      </div>
+    </div>
 
+    <div class="col-md-4">
+      <div class="card shadow stat-card">
+        <div class="card-body">
+          <h5 class="card-title">💼 Departments</h5>
+          <h3 class="fw-bold text-success">3</h3>
+          <p class="text-muted">Across the Organization</p>
+        </div>
+      </div>
+    </div>
 
-
-
-
-  <!-- Main Portal Content -->
-  <div class="card shadow-lg rounded-4 mb-4">
-    <div class="card-body">
-      <router-outlet></router-outlet>
+    <div class="col-md-4">
+      <div class="card shadow stat-card">
+        <div class="card-body">
+          <h5 class="card-title">🏆 Employee of the Month</h5>
+          <p class="fw-bold">🌟 John Doe</p>
+          <p class="text-muted">Sales Department</p>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- News & Announcements -->
+  <!-- Company Announcements -->
   <div class="card shadow rounded-4 mb-4">
     <div class="card-header bg-primary text-white fw-bold">
       📢 Company Announcements
@@ -91,9 +98,36 @@
       </ul>
     </div>
   </div>
+
+  <!-- Upcoming Events -->
+  <div class="card shadow rounded-4 mb-4">
+    <div class="card-header bg-success text-white fw-bold">
+      📅 Upcoming Events
+    </div>
+    <div class="card-body">
+      <ul class="list-group">
+        <li class="list-group-item">🤝 Team Building Workshop – Sept 10</li>
+        <li class="list-group-item">🎓 Leadership Training – Sept 18</li>
+        <li class="list-group-item">🏏 Cricket Tournament – Sept 25</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Quick Links -->
+  <div class="card shadow rounded-4 mb-4">
+    <div class="card-header bg-dark text-white fw-bold">
+      🔗 Quick Links
+    </div>
+    <div class="card-body">
+      <div class="row text-center">
+        <div class="col-md-3"><a href="#" class="btn btn-outline-primary w-100">💰 Payroll</a></div>
+        <div class="col-md-3"><a href="#" class="btn btn-outline-primary w-100">📄 HR Policies</a></div>
+        <div class="col-md-3"><a href="#" class="btn btn-outline-primary w-100">🛠 IT Support</a></div>
+        <div class="col-md-3"><a href="#" class="btn btn-outline-primary w-100">📧 Contact Admin</a></div>
+      </div>
+    </div>
+  </div>
 </div>
-
-
 
 <!-- 🌟 Footer -->
 <footer class="footer bg-dark text-white mt-5 py-3 shadow-lg">
@@ -101,4 +135,3 @@
     <span>✨ All Rights Reserved © 2025 | Employee Portal by <b>Isha</b> ✨</span>
   </div>
 </footer>
-

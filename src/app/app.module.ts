@@ -11,6 +11,7 @@ import { UpdateEmployeeComponent } from './update-employee/update-employee.compo
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { EmployeeFilterPipe } from './employee-filter.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { RegisterComponent } from './register/register.component';
     UpdateEmployeeComponent,
     HomepageComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    EmployeeFilterPipe
   ],
   imports: [
     BrowserModule,

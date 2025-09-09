@@ -6,4 +6,7 @@ export class Employee {
   mobNo: string;
    dept: string;
   active: boolean;
+  department: string;
+  jobTitle: string;
+  joiningDate: Date;
 }

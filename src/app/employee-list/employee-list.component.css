@@ -87,3 +87,18 @@ button {
 .btn-info:hover {
   background: #2c81ba;
 }
+/* Stats cards */
+.stat-card {
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+.stat-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Buttons aligned */
+.btn-group .btn {
+  margin-right: 4px;
+}
+

@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class EmployeeListComponent implements OnInit {
   employees: Observable<Employee[]>;
   isLoggedIn: boolean = false;
+  searchText: string = '';
   constructor(private employeeService: EmployeeService,
     private router: Router) {}
 

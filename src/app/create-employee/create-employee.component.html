@@ -1,69 +1,125 @@
-<div class="create-panel" [hidden]="submitted">
+<div class="create-panel">
+  <!-- Header -->
   <div class="create-header">
-    <h3>➕ Create Employee</h3>
+    <h3>➕ Create New Employee</h3>
+    <p class="small">Fill out the details to onboard a new staff member</p>
   </div>
 
+  <!-- Body -->
   <div class="create-body">
-    <form (ngSubmit)="onSubmit()">
+    <form (ngSubmit)="onSubmit()" #employeeForm="ngForm">
+      <!-- First Name -->
       <div class="form-group">
         <label for="firstName">First Name</label>
-        <input
-          type="text"
+        <input 
+          type="text" 
+          id="firstName" 
           class="form-control"
-          id="firstName"
           required
           [(ngModel)]="employee.firstName"
           name="firstName"
-        />
+          #fname="ngModel">
+        <div *ngIf="fname.invalid && fname.touched" class="text-danger small">
+          First name is required
+        </div>
       </div>
 
+      <!-- Last Name -->
       <div class="form-group">
         <label for="lastName">Last Name</label>
-        <input
-          type="text"
+        <input 
+          type="text" 
+          id="lastName" 
           class="form-control"
-          id="lastName"
           required
           [(ngModel)]="employee.lastName"
           name="lastName"
-        />
+          #lname="ngModel">
+        <div *ngIf="lname.invalid && lname.touched" class="text-danger small">
+          Last name is required
+        </div>
       </div>
 
+      <!-- Email -->
       <div class="form-group">
-        <label for="emailId">Email Id</label>
-        <input
-          type="email"
+        <label for="emailId">Email Address</label>
+        <input 
+          type="email" 
+          id="emailId" 
           class="form-control"
-          id="emailId"
           required
           [(ngModel)]="employee.emailId"
           name="emailId"
-        />
+          #email="ngModel">
+        <div *ngIf="email.invalid && email.touched" class="text-danger small">
+          Valid email is required
+        </div>
       </div>
 
+      <!-- Phone -->
       <div class="form-group">
-        <label for="mobNo">Mobile No</label>
-        <input
-          type="text"
+        <label for="mobNo">Mobile Number</label>
+        <input 
+          type="text" 
+          id="mobNo" 
           class="form-control"
-          id="mobNo"
           required
           [(ngModel)]="employee.mobNo"
           name="mobNo"
-        />
+          #mob="ngModel">
+        <div *ngIf="mob.invalid && mob.touched" class="text-danger small">
+          Mobile number is required
+        </div>
       </div>
 
+      <!-- Department -->
+      <div class="form-group">
+        <label for="department">Department</label>
+        <select 
+          id="department" 
+          class="form-control"
+          required
+          [(ngModel)]="employee.department"
+          name="department"
+          #dept="ngModel">
+          <option value="" disabled selected>Select Department</option>
+          <option value="HR">HR</option>
+          <option value="Engineering">Engineering</option>
+          <option value="Sales">Sales</option>
+        </select>
+        <div *ngIf="dept.invalid && dept.touched" class="text-danger small">
+          Department is required
+        </div>
+      </div>
+
+      <!-- Job Title -->
+      <div class="form-group">
+        <label for="jobTitle">Job Title</label>
+        <input 
+          type="text" 
+          id="jobTitle" 
+          class="form-control"
+          [(ngModel)]="employee.jobTitle"
+          name="jobTitle">
+      </div>
+
+      <!-- Joining Date -->
+      <div class="form-group">
+        <label for="joiningDate">Joining Date</label>
+        <input 
+          type="date" 
+          id="joiningDate" 
+          class="form-control"
+          [(ngModel)]="employee.joiningDate"
+          name="joiningDate">
+      </div>
+
+      <!-- Footer -->
       <div class="form-footer">
-        <button type="submit" class="btn btn-success">✅ Create</button>
-        <button type="button" class="btn btn-secondary" (click)="newEmployee()">🔄 Reset</button>
-        <button type="button" class="btn btn-danger" (click)="gotoList()">❌ Cancel</button>
+        <button type="submit" class="btn btn-success" [disabled]="employeeForm.invalid">💾 Save</button>
+        <button type="reset" class="btn btn-secondary">♻ Reset</button>
+        <button (click)="gotoList()" type="button" class="btn btn-primary">⬅ Back</button>
       </div>
     </form>
   </div>
-</div>
-
-<div class="success-message" [hidden]="!submitted">
-  <h4>🎉 You submitted successfully!</h4>
-  <button class="btn btn-primary" (click)="newEmployee()">➕ Add Another</button>
-  <button class="btn btn-danger" (click)="gotoList()">❌ Back to List</button>
 </div>

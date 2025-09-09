@@ -1,9 +1,44 @@
 <div class="employee-panel">
+  <!-- Header with stats -->
   <div class="employee-header">
     <h2>👨‍💼 Employee List</h2>
+    <p class="small mb-0">Manage your company workforce efficiently</p>
   </div>
 
   <div class="employee-body">
+    <!-- Search & Filter Row -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <input 
+  type="text" 
+  placeholder="🔍 Search employees..." 
+  class="form-control w-50 me-2"
+  [(ngModel)]="searchText"
+/>
+      <select class="form-select w-25">
+        <option>All Departments</option>
+        <option>HR</option>
+        <option>Engineering</option>
+        <option>Sales</option>
+      </select>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="d-flex gap-3 mb-4">
+      <div class="stat-card bg-primary text-white flex-fill p-3 rounded">
+        <h6>Total Employees</h6>
+       <h4>{{ (employees | async)?.length || 0 }}</h4>
+      </div>
+      <div class="stat-card bg-success text-white flex-fill p-3 rounded">
+        <h6>Active</h6>
+        <h4>{{ (employees | async)?.length || 0 }}</h4>
+      </div>
+      <div class="stat-card bg-warning text-dark flex-fill p-3 rounded">
+        <h6>Departments</h6>
+        <h4>3</h4>
+      </div>
+    </div>
+
+    <!-- Employee Table -->
     <table class="employee-table">
       <thead>
         <tr>
@@ -15,21 +50,44 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let employee of employees | async">
-          <td>{{employee.firstName}}</td>
-          <td>{{employee.lastName}}</td>
-          <td>{{employee.emailId}}</td>
-          <td>{{employee.mobNo}}</td>
-          <td>
-            <button (click)="deleteEmployee(employee.id)" class="btn btn-danger">🗑 Delete</button>
-            <button (click)="updateEmployee(employee.id)" class="btn btn-warning">✏ Update</button>
-            <button (click)="employeeDetails(employee.id)" class="btn btn-info">ℹ Details</button>
+        <tr *ngFor="let employee of (employees | async | employeeFilter: searchText)">
+  <td>{{employee.firstName}}</td>
+  <td>{{employee.lastName}}</td>
+  <td>{{employee.emailId}}</td>
+  <td>{{employee.mobNo}}</td>
+  <td>
+    <div class="btn-group">
+      <button (click)="employeeDetails(employee.id)" class="btn btn-info btn-sm">ℹ</button>
+      <button (click)="updateEmployee(employee.id)" class="btn btn-warning btn-sm">✏</button>
+      <button (click)="deleteEmployee(employee.id)" class="btn btn-danger btn-sm">🗑</button>
+    </div>
+  </td>
+</tr>
+
+        <!-- Empty State -->
+        <tr *ngIf="(employees | async)?.length === 0">
+          <td colspan="5" class="text-center text-muted py-4">
+            🚫 No employees found. Try adding some!
           </td>
         </tr>
       </tbody>
     </table>
+
+    <!-- Pagination -->
+    <div class="d-flex justify-content-between align-items-center mt-3">
+    <span class="text-muted">Showing 1–10 of {{ (employees | async)?.length || 0 }} employees</span>      <nav>
+        <ul class="pagination pagination-sm mb-0">
+          <li class="page-item disabled"><a class="page-link">Prev</a></li>
+          <li class="page-item active"><a class="page-link">1</a></li>
+          <li class="page-item"><a class="page-link">2</a></li>
+          <li class="page-item"><a class="page-link">Next</a></li>
+        </ul>
+      </nav>
+    </div>
   </div>
+
+  <!-- Back Button -->
   <div class="text-center mt-4">
-  <button (click)="backToHome()" class="btn btn-secondary">⬅ Back to Home</button>
-</div>
+    <button (click)="backToHome()" class="btn btn-secondary">⬅ Back to Home</button>
+  </div>
 </div>
