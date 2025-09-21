@@ -12,8 +12,11 @@ import { Router } from '@angular/router';
 })
 export class EmployeeListComponent implements OnInit {
   employees: Observable<Employee[]>;
+  inactiveEmployees: number = 0;
+  activeEmployees: number = 0;
   isLoggedIn: boolean = false;
   searchText: string = '';
+  departmentLength: number = 0;
   constructor(private employeeService: EmployeeService,
     private router: Router) {}
 
@@ -30,6 +33,22 @@ export class EmployeeListComponent implements OnInit {
 
   reloadData() {
     this.employees = this.employeeService.getEmployeesList();
+   
+    this.employees.subscribe(empList => {
+      empList.forEach(emp => {
+        if(emp.active) {
+          this.activeEmployees++;
+        } else {
+          this.inactiveEmployees++;
+        }
+      });
+    });
+    console.log("Active Employees: ", this.activeEmployees);
+    this.employeeService.getDepts().subscribe(data => {
+      console.log(data);
+      this.departmentLength=data.length;
+    })
+    
   }
 
   deleteEmployee(id: number) {

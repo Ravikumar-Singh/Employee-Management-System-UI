@@ -8,6 +8,8 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { DepartmentCreateComponent } from './department-create/department-create.component';
+import { DepartmentShowComponent } from './department-show/department-show.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' }, 
@@ -18,6 +20,8 @@ const routes: Routes = [
   { path: 'home', component: HomepageComponent },
   {path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent },
+  {path:'home/create-department', component: DepartmentCreateComponent},
+  {path:'home/departments', component: DepartmentShowComponent}
 ];
 
 @NgModule({

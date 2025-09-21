@@ -11,6 +11,7 @@ export class HomepageComponent implements OnInit {
    title = 'Employee Management System';
       totalCount=0;
       isLoggedIn = false;
+      totalDepartments=0;
   constructor(private employeeService: EmployeeService,
     private router: Router
   ) { }
@@ -27,6 +28,10 @@ export class HomepageComponent implements OnInit {
       console.log(data);
       this.totalCount=data.length;
     })
+    this.employeeService.getDepts().subscribe(data => {
+      console.log(data);
+      this.totalDepartments=data.length;
+    })
   }
 
   goToEmployees() {
@@ -36,6 +41,14 @@ export class HomepageComponent implements OnInit {
     } else {
       alert('⚠️ Please log in to view employees.');
     }
+  }
+
+  goToCreateDepartment() {
+    
+     this.router.navigate(['/home/create-department'], { state: { isLoggedIn: this.isLoggedIn } });
+  }
+  goToDepartments() {
+     this.router.navigate(['/home/departments'], { state: { isLoggedIn: this.isLoggedIn } });
   }
 
    goToAddEmployees() {

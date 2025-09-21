@@ -4,9 +4,9 @@ export class Employee {
   lastName: string;
   emailId: string;
   mobNo: string;
-   dept: string;
-  active: boolean;
+  dept: string;
   department: string;
   jobTitle: string;
   joiningDate: Date;
+  active: boolean;
 }

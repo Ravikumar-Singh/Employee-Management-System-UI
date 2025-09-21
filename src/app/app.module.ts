@@ -12,6 +12,8 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { EmployeeFilterPipe } from './employee-filter.pipe';
+import { DepartmentCreateComponent } from './department-create/department-create.component';
+import { DepartmentShowComponent } from './department-show/department-show.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,9 @@ import { EmployeeFilterPipe } from './employee-filter.pipe';
     HomepageComponent,
     LoginComponent,
     RegisterComponent,
-    EmployeeFilterPipe
+    EmployeeFilterPipe,
+    DepartmentCreateComponent,
+    DepartmentShowComponent
   ],
   imports: [
     BrowserModule,

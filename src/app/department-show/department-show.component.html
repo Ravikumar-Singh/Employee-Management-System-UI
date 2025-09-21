@@ -1,0 +1,36 @@
+<!-- Existing Create Department Form Here -->
+
+<!-- Existing Form Ends -->
+
+<!-- 🏢 Department List Table -->
+<div class="employee-panel mt-4">
+  <div class="employee-header">
+    <h2>📋 Departments</h2>
+  </div>
+
+  <div class="employee-body">
+    <table class="employee-table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Location</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dept of departments">
+          <td>{{ dept.name }}</td>
+          <td>{{ dept.location }}</td>
+          <td>{{ dept.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<div class="text-center mt-4">
+  <button class="btn btn-secondary" (click)="goBackHome()">
+    ⬅ Back to Home
+  </button>
+</div>

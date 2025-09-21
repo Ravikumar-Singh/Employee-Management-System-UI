@@ -1,0 +1,42 @@
+<div class="create-panel">
+  <!-- Header -->
+  <div class="create-header">
+    <h3>🏢 Create Department</h3>
+  </div>
+
+  <!-- Body -->
+  <div class="create-body">
+    <form #deptForm="ngForm" (ngSubmit)="onSubmit(deptForm)">
+      <!-- Department Name -->
+      <div class="form-group">
+        <label for="name">Department Name</label>
+        <input type="text" id="name" class="form-control" name="name"
+               [(ngModel)]="department.name" required>
+      </div>
+
+      <!-- Location -->
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input type="text" id="location" class="form-control" name="location"
+               [(ngModel)]="department.location" required>
+      </div>
+
+      <!-- Description -->
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" class="form-control" name="description"
+                  [(ngModel)]="department.description" rows="3" required></textarea>
+      </div>
+
+      <!-- Buttons -->
+      <div class="form-footer">
+        <button type="submit" class="btn btn-success" [disabled]="!deptForm.valid">
+          ➕ Create Department
+        </button>
+        <button type="button" class="btn btn-secondary" (click)="goBackHome()">
+          ⬅ Back to Home
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

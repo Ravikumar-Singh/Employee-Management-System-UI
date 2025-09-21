@@ -74,4 +74,21 @@ html, body {
 }
 
 
+.ms-auto {
+  margin-left: 59%;
+}
+
+/* Button styling */
+.btn {
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  padding: 0.5rem 1.2rem;
+  font-weight: 500;
+  transition: box-shadow 0.2s;
+}
+
+.btn:active, .btn:focus {
+  box-shadow: 0 0 0 0.15rem #007bff33;
+}
+
 

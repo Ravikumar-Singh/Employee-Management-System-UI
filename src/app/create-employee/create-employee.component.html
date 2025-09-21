@@ -82,10 +82,7 @@
           [(ngModel)]="employee.department"
           name="department"
           #dept="ngModel">
-          <option value="" disabled selected>Select Department</option>
-          <option value="HR">HR</option>
-          <option value="Engineering">Engineering</option>
-          <option value="Sales">Sales</option>
+          <option *ngFor="let dept of departments" [value]="dept.name">{{ dept.name }} - {{  dept.location }}</option>
         </select>
         <div *ngIf="dept.invalid && dept.touched" class="text-danger small">
           Department is required

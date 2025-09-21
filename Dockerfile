@@ -20,3 +20,6 @@ EXPOSE 80
 
 # Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
+
+git remote add origin https://github.com/Ravikumar-Singh/Employee-Management-System-Backend.git
+

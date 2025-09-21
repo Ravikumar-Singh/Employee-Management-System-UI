@@ -8,7 +8,7 @@ export class EmployeeService {
 
   private baseUrl = 'http://localhost:8081/springboot-crud-rest/api/v1/employees';
   private userUrl = 'http://localhost:8081/springboot-crud-rest/api/v1/user';
-
+  private deptUrl = 'http://localhost:8081/springboot-crud-rest/api/v1/departments';
 
   constructor(private http: HttpClient) { }
 
@@ -38,5 +38,13 @@ export class EmployeeService {
 
   authorizeUser(email: string, passcode: string): Observable<any> {
     return this.http.get(`${this.userUrl}/authorize?email=${encodeURIComponent(email)}&passCode=${encodeURIComponent(passcode)}`);
+  }
+
+    createDept(Department: Object): Observable<Object> {
+    return this.http.post(`${this.deptUrl}`, Department);
+  }
+
+  getDepts(): Observable<any> {
+    return this.http.get(`${this.deptUrl}`);
   }
 }

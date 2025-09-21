@@ -14,12 +14,7 @@
   class="form-control w-50 me-2"
   [(ngModel)]="searchText"
 />
-      <select class="form-select w-25">
-        <option>All Departments</option>
-        <option>HR</option>
-        <option>Engineering</option>
-        <option>Sales</option>
-      </select>
+
     </div>
 
     <!-- Stats Cards -->
@@ -30,11 +25,11 @@
       </div>
       <div class="stat-card bg-success text-white flex-fill p-3 rounded">
         <h6>Active</h6>
-        <h4>{{ (employees | async)?.length || 0 }}</h4>
+        <h4>{{ activeEmployees  }}</h4>
       </div>
       <div class="stat-card bg-warning text-dark flex-fill p-3 rounded">
         <h6>Departments</h6>
-        <h4>3</h4>
+        <h4>{{ departmentLength  }}</h4>
       </div>
     </div>
 

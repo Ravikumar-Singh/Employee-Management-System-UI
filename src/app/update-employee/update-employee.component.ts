@@ -42,6 +42,18 @@ export class UpdateEmployeeComponent implements OnInit {
       }, error => console.log(error));
   }
 
+  // create a method make employee as inactive
+  makeInactive() {
+    this.employee.active = false;
+    alert('Employee will be created as Inactive.');
+  }
+
+
+  makeActive() {
+  this.employee.active = true;
+    alert('Employee will be created as Active.');
+}
+
   onSubmit() {
     this.updateEmployee();    
   }

@@ -1,4 +1,4 @@
-<div class="update-panel">
+<div class="update-panel" [ngClass]="employee.active ? 'active-bg' : 'inactive-bg'">
   <div class="update-header">
     <h3>✏️ Update Employee</h3>
   </div>
@@ -60,7 +60,7 @@
           id="department"
           required
           [(ngModel)]="employee.department"
-          name="department"
+          name="department" disabled
         />
       </div>
       <div class="form-group">
@@ -88,7 +88,22 @@
 
       <div class="form-footer">
         <button type="submit" class="btn btn-success">💾 Save Changes</button>
+        <br><br>
+        <button 
+          *ngIf="employee.active" 
+          (click)="makeInactive()" 
+          class="btn btn-secondary btn-sm">
+          🚫 Inactive
+        </button>
+        <button 
+          *ngIf="!employee.active" 
+          (click)="makeActive()" 
+          class="btn btn-primary btn-sm">
+          ✅ Activate
+        </button>
       </div>
     </form>
   </div>
 </div>
+
+
